@@ -1,691 +1,261 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- zomato logo in the tab -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Bungee+Outline&family=Montserrat:wght@500&family=Nova+Flat&display=swap"
-        rel="stylesheet" />
-    <title>React App</title>
-    <style>body{
-        background: #fefefe;
-        /* font-family: Roboto; */
-      }
-      
-      #fs_app{
-        padding: 10px 15px 0;
-      }
-      
-      #fs_app section:not(#fs_header_bar){
-        padding-top: 25px;
-        padding-bottom: 10px;
-        border-bottom: 2px solid #eee;
-      }
-      
-      #fs_header_bar{
-        padding-top: 25px;
-        padding-bottom: 0;
-      }
-      
-      #fs_page_title{
-        font-size: 15px;
-        font-weight: 100;
-        text-transform: uppercase;
-        margin-left: 15px;
-      }
-      .bt:hover {
-        background: #d1e1eb;
-        background-image: -webkit-linear-gradient(top, #d1e1eb,#d1e1eb);
-        background-image: -moz-linear-gradient(top, #d1e1eb,#d1e1eb);
-        background-image: -ms-linear-gradient(top, #d1e1eb, #d1e1eb);
-        background-image: -o-linear-gradient(top, #d1e1eb, #d1e1eb);
-        background-image: linear-gradient(to bottom, #d1e1eb,#d1e1eb );
-      
-        text-decoration-color: #ed4040;
-      }
-      
-      
-      .heading
-      {
-        font-size: 15px;
-        font-weight: 500;
-        text-transform: uppercase;
-      }
-      
-      .btn{
-        width: 100px;
-        background: transparent;
-        border: 1px solid #ff286c;
-        border-radius: 2px;
-        padding: 3px;
-        color: #ff286c;
-        font-size: 14px;
-        font-weight: 300 !important;
-        margin-top: 15px;
-        margin-bottom: 20px;
-      
-      }
-      
-      .active .btn{
-        background: #ff286c;
-        color: #fff;
-      }
-      
-      #fs_price_body .line1{
-        height: 2px;
-        width: 100%;
-        background: #eee;
-      }
-      
-      #fs_price_body .line{
-        position: absolute;
-        height: 2px;
-        width: 45%;
-        background: #ff286c;
-        left: 9%;
-      }
-      
-      #fs_price_body .line:before{
-        position: absolute;
-        content:  '';
-        display: block;
-        height: 6px;
-        width: 6px;
-        background: #ff286c;
-        border-radius: 50%;
-        left: -2px;
-        top: -2px;
-      }
-      
-      #fs_price_body .line:after{
-        position: absolute;
-        content: '';
-        display: block;
-        height: 6px;
-        width: 6px;
-        background: #ff286c;
-        border-radius: -2px;
-        right: -2px;
-        bottom: -2px;
-      }
-      
-      #fs_price_body ul{
-        padding: 0;
-        margin-top: 20px;
-        margin-bottom: 0;
-      
-      }
-      
-      #fs_price_body ul li{
-        list-style: none;
-        display: inline-block;
-        color: #d4d4d4;
-      }
-      
-      #fs_price_body ul li:last-child{
-        float: right;
-      }
-      
-      #fs_distance_body ul li{
-        list-style: none;
-        margin-bottom: 18px;
-        font-size: 13px;
-        font-weight: 400;
-      
-      }
-      
-      #fs_distance_body .text-right{
-        float: right;
-        height: 13px;
-        width: 13px;
-        border: 1px solid #999;
-        margin-top: 3px;
-      
-      }
-      
-      #fs_distance_body li.active span:first-child{
-        color: #ff286c;
-      
-      }
-      
-      #fs_distance_body li.active span:last-child{
-      background: #ff286c;
-      color: #fff;
-      border: 1px solid #ff286c;
-      font-size: 10px;
-      line-height: 100%;
-      text-align: center;
-      }
-      
-      #fs_time_body ul{
-        display: block;
-        margin-top: 20px;
-        }
-      
-      
-      #fs_time_body ul li{
-        list-style: none;
-        margin-bottom: 18px;
-        font-size: 13px;
-        font-weight: 400;
-      
-      }
-      
-      #fs_time_body .text-right{
-        float: right;
-        height: 13px;
-        width: 13px;
-        border: 1px solid #999;
-        margin-top: 3px;
-      
-      }
-      
-      #fs_time_body li.active span:first-child{
-        color: #ff286c;
-      
-      }
-      
-      #fs_time_body li.active span:last-child{
-      background: #ff286c;
-      color: #fff;
-      border: 1px solid #ff286c;
-      font-size: 10px;
-      line-height: 100%;
-      text-align: center;
-      }
-      
-      #fs_rating ul{
-        display: block;
-        margin-top: 15px;
-        }
-      
-        #fs_rating ul li{
-          list-style: none;
-          margin-bottom: 18px;
-          font-size: 13px;
-          font-weight: 400;
-      
-        }
-      
-        #fs_rating .text-right{
-          float: right;
-          height: 13px;
-          width: 13px;
-          border: 1px solid #999;
-          margin-top: 3px;
-      
-        }
-      
-      
-      #fs_rating i{
-        color: #dedede;
-      }
-      
-      #fs_rating i.dark{
-        color: #ffd700;
-      }
-      
-      #fs_rating{
-       border: none !important;
-      }
-      body{
-  background: #fefefe;
-  /* font-family: Roboto; */
-}
-
-#fs_app{
-  padding: 10px 15px 0;
-}
-
-#fs_app section:not(#fs_header_bar){
-  padding-top: 25px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #eee;
-}
-
-#fs_header_bar{
-  padding-top: 25px;
-  padding-bottom: 0;
-}
-
-#fs_page_title{
-  font-size: 15px;
-  font-weight: 100;
-  text-transform: uppercase;
-  margin-left: 15px;
-}
-.bt:hover {
-  background: #d1e1eb;
-  background-image: -webkit-linear-gradient(top, #d1e1eb,#d1e1eb);
-  background-image: -moz-linear-gradient(top, #d1e1eb,#d1e1eb);
-  background-image: -ms-linear-gradient(top, #d1e1eb, #d1e1eb);
-  background-image: -o-linear-gradient(top, #d1e1eb, #d1e1eb);
-  background-image: linear-gradient(to bottom, #d1e1eb,#d1e1eb );
-
-  text-decoration-color: #ed4040;
-}
-
-
-.heading
-{
-  font-size: 15px;
-  font-weight: 500;
-  text-transform: uppercase;
-}
-
-.btn{
-  width: 100px;
-  background: transparent;
-  border: 1px solid #ff286c;
-  border-radius: 2px;
-  padding: 3px;
-  color: #ff286c;
-  font-size: 14px;
-  font-weight: 300 !important;
-  margin-top: 15px;
-  margin-bottom: 20px;
-
-}
-
-.active .btn{
-  background: #ff286c;
-  color: #fff;
-}
-
-#fs_price_body .line1{
-  height: 2px;
-  width: 100%;
-  background: #eee;
-}
-
-#fs_price_body .line{
-  position: absolute;
-  height: 2px;
-  width: 45%;
-  background: #ff286c;
-  left: 9%;
-}
-
-#fs_price_body .line:before{
-  position: absolute;
-  content:  '';
-  display: block;
-  height: 6px;
-  width: 6px;
-  background: #ff286c;
-  border-radius: 50%;
-  left: -2px;
-  top: -2px;
-}
-
-#fs_price_body .line:after{
-  position: absolute;
-  content: '';
-  display: block;
-  height: 6px;
-  width: 6px;
-  background: #ff286c;
-  border-radius: -2px;
-  right: -2px;
-  bottom: -2px;
-}
-
-#fs_price_body ul{
-  padding: 0;
-  margin-top: 20px;
-  margin-bottom: 0;
-
-}
-
-#fs_price_body ul li{
-  list-style: none;
-  display: inline-block;
-  color: #d4d4d4;
-}
-
-#fs_price_body ul li:last-child{
-  float: right;
-}
-
-#fs_distance_body ul li{
-  list-style: none;
-  margin-bottom: 18px;
-  font-size: 13px;
-  font-weight: 400;
-
-}
-
-#fs_distance_body .text-right{
-  float: right;
-  height: 13px;
-  width: 13px;
-  border: 1px solid #999;
-  margin-top: 3px;
-
-}
-
-#fs_distance_body li.active span:first-child{
-  color: #ff286c;
-
-}
-
-#fs_distance_body li.active span:last-child{
-background: #ff286c;
-color: #fff;
-border: 1px solid #ff286c;
-font-size: 10px;
-line-height: 100%;
-text-align: center;
-}
-
-#fs_time_body ul{
-  display: block;
-  margin-top: 20px;
-  }
-
-
-#fs_time_body ul li{
-  list-style: none;
-  margin-bottom: 18px;
-  font-size: 13px;
-  font-weight: 400;
-
-}
-
-#fs_time_body .text-right{
-  float: right;
-  height: 13px;
-  width: 13px;
-  border: 1px solid #999;
-  margin-top: 3px;
-
-}
-
-#fs_time_body li.active span:first-child{
-  color: #ff286c;
-
-}
-
-#fs_time_body li.active span:last-child{
-background: #ff286c;
-color: #fff;
-border: 1px solid #ff286c;
-font-size: 10px;
-line-height: 100%;
-text-align: center;
-}
-
-#fs_rating ul{
-  display: block;
-  margin-top: 15px;
-  }
-
-  #fs_rating ul li{
-    list-style: none;
-    margin-bottom: 18px;
-    font-size: 13px;
-    font-weight: 400;
-
-  }
-
-  #fs_rating .text-right{
-    float: right;
-    height: 13px;
-    width: 13px;
-    border: 1px solid #999;
-    margin-top: 3px;
-
-  }
-
-
-#fs_rating i{
-  color: #dedede;
-}
-
-#fs_rating i.dark{
-  color: #ffd700;
-}
-
-#fs_rating{
- border: none !important;
-}
-body{
-  background: #fefefe;
-  /* font-family: Roboto; */
-}
-
-#fs_app{
-  padding: 10px 15px 0;
-}
-
-#fs_app section:not(#fs_header_bar){
-  padding-top: 25px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #eee;
-}
-
-#fs_header_bar{
-  padding-top: 25px;
-  padding-bottom: 0;
-}
-
-#fs_page_title{
-  font-size: 15px;
-  font-weight: 100;
-  text-transform: uppercase;
-  margin-left: 15px;
-}
-.bt:hover {
-  background: #d1e1eb;
-  background-image: -webkit-linear-gradient(top, #d1e1eb,#d1e1eb);
-  background-image: -moz-linear-gradient(top, #d1e1eb,#d1e1eb);
-  background-image: -ms-linear-gradient(top, #d1e1eb, #d1e1eb);
-  background-image: -o-linear-gradient(top, #d1e1eb, #d1e1eb);
-  background-image: linear-gradient(to bottom, #d1e1eb,#d1e1eb );
-
-  text-decoration-color: #ed4040;
-}
-
-
-.heading
-{
-  font-size: 15px;
-  font-weight: 500;
-  text-transform: uppercase;
-}
-
-.btn{
-  width: 100px;
-  background: transparent;
-  border: 1px solid #ff286c;
-  border-radius: 2px;
-  padding: 3px;
-  color: #ff286c;
-  font-size: 14px;
-  font-weight: 300 !important;
-  margin-top: 15px;
-  margin-bottom: 20px;
-
-}
-
-.active .btn{
-  background: #ff286c;
-  color: #fff;
-}
-
-#fs_price_body .line1{
-  height: 2px;
-  width: 100%;
-  background: #eee;
-}
-
-#fs_price_body .line{
-  position: absolute;
-  height: 2px;
-  width: 45%;
-  background: #ff286c;
-  left: 9%;
-}
-
-#fs_price_body .line:before{
-  position: absolute;
-  content:  '';
-  display: block;
-  height: 6px;
-  width: 6px;
-  background: #ff286c;
-  border-radius: 50%;
-  left: -2px;
-  top: -2px;
-}
-
-#fs_price_body .line:after{
-  position: absolute;
-  content: '';
-  display: block;
-  height: 6px;
-  width: 6px;
-  background: #ff286c;
-  border-radius: -2px;
-  right: -2px;
-  bottom: -2px;
-}
-
-#fs_price_body ul{
-  padding: 0;
-  margin-top: 20px;
-  margin-bottom: 0;
-
-}
-
-#fs_price_body ul li{
-  list-style: none;
-  display: inline-block;
-  color: #d4d4d4;
-}
-
-#fs_price_body ul li:last-child{
-  float: right;
-}
-
-#fs_distance_body ul li{
-  list-style: none;
-  margin-bottom: 18px;
-  font-size: 13px;
-  font-weight: 400;
-
-}
-
-#fs_distance_body .text-right{
-  float: right;
-  height: 13px;
-  width: 13px;
-  border: 1px solid #999;
-  margin-top: 3px;
-
-}
-
-#fs_distance_body li.active span:first-child{
-  color: #ff286c;
-
-}
-
-#fs_distance_body li.active span:last-child{
-background: #ff286c;
-color: #fff;
-border: 1px solid #ff286c;
-font-size: 10px;
-line-height: 100%;
-text-align: center;
-}
-
-#fs_time_body ul{
-  display: block;
-  margin-top: 20px;
-  }
-
-
-#fs_time_body ul li{
-  list-style: none;
-  margin-bottom: 18px;
-  font-size: 13px;
-  font-weight: 400;
-
-}
-
-#fs_time_body .text-right{
-  float: right;
-  height: 13px;
-  width: 13px;
-  border: 1px solid #999;
-  margin-top: 3px;
-
-}
-
-#fs_time_body li.active span:first-child{
-  color: #ff286c;
-
-}
-
-#fs_time_body li.active span:last-child{
-background: #ff286c;
-color: #fff;
-border: 1px solid #ff286c;
-font-size: 10px;
-line-height: 100%;
-text-align: center;
-}
-
-#fs_rating ul{
-  display: block;
-  margin-top: 15px;
-  }
-
-  #fs_rating ul li{
-    list-style: none;
-    margin-bottom: 18px;
-    font-size: 13px;
-    font-weight: 400;
-
-  }
-
-  #fs_rating .text-right{
-    float: right;
-    height: 13px;
-    width: 13px;
-    border: 1px solid #999;
-    margin-top: 3px;
-
-  }
-
-
-#fs_rating i{
-  color: #dedede;
-}
-
-#fs_rating i.dark{
-  color: #ffd700;
-}
-
-#fs_rating{
- border: none !important;
-}
-
-      </style>
-    <link href="/static/css/main.a0bd65f8.chunk.css" rel="stylesheet">
-</head>
-
-<body>
-    <div id="root"></div>
-    <script src="./script.js"></script>
-    <script>!function (e) { function r(r) { for (var n, l, a = r[0], f = r[1], i = r[2], p = 0, s = []; p < a.length; p++)l = a[p], Object.prototype.hasOwnProperty.call(o, l) && o[l] && s.push(o[l][0]), o[l] = 0; for (n in f) Object.prototype.hasOwnProperty.call(f, n) && (e[n] = f[n]); for (c && c(r); s.length;)s.shift()(); return u.push.apply(u, i || []), t() } function t() { for (var e, r = 0; r < u.length; r++) { for (var t = u[r], n = !0, a = 1; a < t.length; a++) { var f = t[a]; 0 !== o[f] && (n = !1) } n && (u.splice(r--, 1), e = l(l.s = t[0])) } return e } var n = {}, o = { 1: 0 }, u = []; function l(r) { if (n[r]) return n[r].exports; var t = n[r] = { i: r, l: !1, exports: {} }; return e[r].call(t.exports, t, t.exports, l), t.l = !0, t.exports } l.m = e, l.c = n, l.d = function (e, r, t) { l.o(e, r) || Object.defineProperty(e, r, { enumerable: !0, get: t }) }, l.r = function (e) { "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(e, "__esModule", { value: !0 }) }, l.t = function (e, r) { if (1 & r && (e = l(e)), 8 & r) return e; if (4 & r && "object" == typeof e && e && e.__esModule) return e; var t = Object.create(null); if (l.r(t), Object.defineProperty(t, "default", { enumerable: !0, value: e }), 2 & r && "string" != typeof e) for (var n in e) l.d(t, n, function (r) { return e[r] }.bind(null, n)); return t }, l.n = function (e) { var r = e && e.__esModule ? function () { return e.default } : function () { return e }; return l.d(r, "a", r), r }, l.o = function (e, r) { return Object.prototype.hasOwnProperty.call(e, r) }, l.p = "/"; var a = this.webpackJsonpreact = this.webpackJsonpreact || [], f = a.push.bind(a); a.push = r, a = a.slice(); for (var i = 0; i < a.length; i++)r(a[i]); var c = f; t() }([])</script>
-    <script src="/static/js/2.e5111ef3.chunk.js"></script>
-    <script src="/static/js/main.1dd87cd3.chunk.js"></script>
-</body>
-<script>function submitForm(){
-    document.getElementById("form").submit()
-}</script>
+      rel="icon"
+      type="image/x-icon"
+      href="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Zomato_logo.png/220px-Zomato_logo.png"
+    />
+    <!-- font awesome icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- poppins font by google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- importing styles.css -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <title>Zomato Clone</title>
+  </head>
+  <body>
+    <section class="hero__section">
+      <header>
+        <nav class="navbar">
+          <a href="#">Get The App</a>
+          <div class="navbar__menu_container">
+            <a href="#" class="link">Inventor Relations</a>
+            <a href="#" class="link">Add Restaurant</a>
+            <a href="#" class="link">Login</a>
+            <a href="#" class="link">Sign Up</a>
+            <a href="#" class="user__icon">
+              <i class="fa-solid fa-user"></i>
+            </a>
+          </div>
+        </nav>
+      </header>
+
+      <div class="hero__section_container">
+        <img
+          class="hero__section_logo"
+          src="images/heroSectionLogo.png"
+          alt="Zomato Logo"
+        />
+        <h1 class="hero__section_title">
+          Discover the best food & drinks in Delhi NCR
+        </h1>
+        <div class="hero__section_input_container">
+          <input
+            class="input_container_location"
+            type="text"
+            placeholder="TWCA, 1, Ashok Rd, Hanu"
+          />
+          <input
+            class="input_container_search"
+            type="text"
+            placeholder="Search for a restaurant, cuisine or a dish"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="container we__offer">
+      <div class="we__offer_card">
+        <img src="images/item1.png" alt="" />
+        <div class="we__offer_content">
+          <h2>Order Online</h2>
+          <p>Stay home and order to your doorstep</p>
+        </div>
+      </div>
+
+      <div class="we__offer_card">
+        <img src="images/item2.png" alt="" />
+        <div class="we__offer_content">
+          <h2>Dining</h2>
+          <p>View the city's favourite dining venue</p>
+        </div>
+      </div>
+
+      <div class="we__offer_card">
+        <img src="images/item3.png" alt="" />
+        <div class="we__offer_content">
+          <h2>Nightlife and Clubs</h2>
+          <p>Explore the city's top nightlife outlets</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container collections">
+      <h1>Collections</h1>
+
+      <div class="sub__heading_container">
+        <span
+          >Explore curated lists of top restaurants, cafes, pubs, and barsin
+          Delhi NCR, based on trends</span
+        >
+        <span> All collections in Delhi NCR </span>
+      </div>
+
+      <div class="collections_card_container">
+        <div class="card card1">
+          <div class="overlay"></div>
+          <div class="content">
+            <h4>Live Cricket Screening</h4>
+            <span>58 Places</span>
+          </div>
+        </div>
+
+        <div class="card card2">
+          <div class="overlay"></div>
+          <div class="content">
+            <h4>Ramadan Special</h4>
+            <span>22 Places</span>
+          </div>
+        </div>
+
+        <div class="card card3">
+          <div class="overlay"></div>
+          <div class="content">
+            <h4>Newly Opened</h4>
+            <span>100 Places</span>
+          </div>
+        </div>
+
+        <div class="card card4">
+          <div class="overlay"></div>
+          <div class="content">
+            <h4>Trending This Week</h4>
+            <span>30 Places</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container get__the_app">
+      <div class="semiContainer">
+        <div class="left">
+          <img src="images/mobileBanner.png" alt="" />
+        </div>
+        <div class="right">
+          <h1>Get the Zomato App</h1>
+          <p>
+            We will send you a link, open it on your phone to download the app.
+          </p>
+          <div class="radio__buttons_container">
+            <div>
+              <input type="radio" id="email" name="download_app" />
+              <label for="email" style="font-size: 14px">Email</label>
+            </div>
+            <div>
+              <input type="radio" id="phone" name="download_app" />
+              <label for="phone" style="font-size: 14px">Phone</label>
+            </div>
+          </div>
+          <div class="input_container">
+            <input type="email" placeholder="Email" />
+            <button>Share App Link</button>
+          </div>
+          <div class="download__app_container">
+            <h5>Download App From</h5>
+            <div>
+              <img src="images/appleStore.png" alt="" />
+              <img src="images/playStore.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="container footer">
+      <div class="footer_section1">
+        <img src="images/logo.png" alt="" />
+        <div class="section1__buttonContainer">
+          <button>
+            <img
+              src="https://flagcdn.com/w40/in.png"
+              alt="indian flag"
+              style="width: 17px"
+            />India
+          </button>
+          <button><i class="fa fa-globe"></i>English</button>
+        </div>
+      </div>
+      <div class="navigation_container">
+        <div class="link__container">
+          <h5>ABOUT ZOMATO</h5>
+          <a class="footer__link" href="#">Who we are</a>
+          <a class="footer__link" href="#">Blogs</a>
+          <a class="footer__link" href="#">Work with us</a>
+          <a class="footer__link" href="#">Investor Relations</a>
+          <a class="footer__link" href="#">Report Fraud</a>
+        </div>
+
+        <div class="link__container">
+          <h5>ZOMAVERSE</h5>
+          <a class="footer__link" href="#">Zomato</a>
+          <a class="footer__link" href="#">Feeding India</a>
+          <a class="footer__link" href="#">Hyperpure</a>
+          <a class="footer__link" href="#">Zomaland</a>
+        </div>
+
+        <div class="link__container">
+          <h5>FOR RESTAURANTS</h5>
+          <a class="footer__link" href="#">Partner With Us</a>
+          <a class="footer__link" href="#">Apps For You</a>
+          <br />
+          <h5>FOR ENTERPRICES</h5>
+          <a class="footer__link" href="#">Zomato For Work</a>
+        </div>
+
+        <div class="link__container">
+          <h5>Learn More</h5>
+          <a class="footer__link" href="#">Privacy</a>
+          <a class="footer__link" href="#">Security</a>
+          <a class="footer__link" href="#">Terms</a>
+          <a class="footer__link" href="#">Sitemap</a>
+        </div>
+
+        <div class="link__container">
+          <h5>SOCIAL LINKS</h5>
+          <div class="social__links_container">
+            <button><i class="fa-brands fa-linkedin-in"></i></button>
+            <button><i class="fa-brands fa-instagram"></i></button>
+            <button><i class="fa-brands fa-twitter"></i></button>
+            <button><i class="fa-brands fa-youtube"></i></button>
+            <button><i class="fa-brands fa-facebook"></i></button>
+          </div>
+          <br />
+          <img
+            src="images/appleStore.png"
+            alt=""
+            class="footer__section_logos"
+          />
+          <img
+            src="images/playStore.png"
+            alt=""
+            class="footer__section_logos"
+          />
+        </div>
+      </div>
+      <div class="disclamer">
+        By continuing past this page, you agree to our Terms of Service, Cookie
+        Policy, Privacy Policy and Content Policies. All trademarks are
+        properties of their respective owners. 2008-2022 © Zomato™ Ltd. All
+        rights reserved.
+      </div>
+    </footer>
+  </body>
 </html>
